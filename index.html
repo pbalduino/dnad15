@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="css/theme/beige.css" id="theme">
 
 		<!-- Code syntax highlighting -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+		<link rel="stylesheet" href="lib/css/github.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -62,12 +62,17 @@
 				</section>
 
 				<section>
+					<h1>Premissa</h1>
+					<h2>O valor de uma estrutura não muda depois que ela é criada</h2>
+				</section>
+
+				<section>
 					<section>
 						<h1>É impossível fazer um sistema do mundo real com imutabilidade</h1>
 					</section>
 
 					<section>
-						<h2>Mito.</h2>
+						<h2>Mito</h2>
 						<h3>Trate as unidades de trabalho como caixas pretas</h3>
 						<img src="img/io_cow.png">
 					</section>
@@ -77,11 +82,40 @@
 					<section>
 						<h1>Imutabilidade é lenta</h1>
 					</section>
+					<section>
+						<h2>Depende</h2>
+						<img src="img/pointer.png" height="300">
+					</section>
+					<section>
+						<h2>Transiência</h2>
+					<pre><code data-trim contenteditable>
+data1 = process(data2);
+
+function process( data ) {
+  var newData = data;
+
+  while(condition) {
+    // process newData
+  }
+
+  return newData;
+}
+					</code></pre>
+					</section>
 				</section>
 
 				<section>
 					<section>
 						<h1>Imutabilidade gasta muita memória</h1>
+					</section>
+					<section>
+						<h2>Depende</h2>
+						<img src="img/7to10.png" height="400">
+					</section>
+					<section>
+						<h2>Estruturas de dados persistentes</h2>
+						<img src="img/immutable.png" width="400">
+						<img src="img/clojure.png" width="400">
 					</section>
 				</section>
 
@@ -89,11 +123,19 @@
 					<section>
 						<h1>Imutabilidade é difícil</h1>
 					</section>
+					<section>
+						<h2>Mito</h2>
+						<h3>Imutabilidade simplifica o seu código</h3>
+					</section>
 				</section>
 
 				<section>
 					<section>
 						<h1>Imutabilidade é apenas para multithreading</h1>
+					</section>
+					<section>
+						<h2>Depende</h2>
+						<h3>Mas são grandes as chances de que você precisa</h3>
 					</section>
 				</section>
 
@@ -101,17 +143,39 @@
 					<section>
 						<h1>Imutabilidade resolve meus problemas de concorrência</h1>
 					</section>
+					<section>
+						<h2>Mito</h2>
+						<h3>Resolve a maioria, mas não todos</h3>
+					</section>
+					<section>
+						<h2>Deadlock</h2>
+						<img src="img/deadlock.jpg" height="400">
+					</section>
 				</section>
 
 				<section>
 					<section>
 						<h1>A linguagem que eu uso não tem suporte a imutabilidade</h1>
 					</section>
+					<section>
+						<h2>Depende</h2>
+						<h3>Imutabilidade depende de encapsulamento</h3>
+					</section>
+					<section>
+						<h2>Depende</h2>
+						<h3>Imutabilidade depende de encapsulamento</h3>
+						<img src="img/immu.png" height="400">
+					</section>
+
 				</section>
 
 				<section>
 					<section>
 						<h1>Mutabilidade desenfreada é ruim</h1>
+					</section>
+					<section>
+						<h2>Fato</h2>
+						<h3>Fica fácil perder o processamento de vista</h3>
 					</section>
 				</section>
 
@@ -120,15 +184,41 @@
 						<h1>Posso confiar meu objeto a uma função ou método</h1>
 							<!-- Mutabilidade, passagem por referência e estados globais formam a igrejinha do Capeta -->
 					</section>
+					<section>
+						<h2>Depende</h2>
+						<h3>Se ele for mutável, NUNCA</h3>
+					</section>
+					<section>
+						<h2>Efeitos colaterais</h2>
+						<img src="img/collateral.png" height="400">
+					</section>
 				</section>
 
 				<section>
+					<section>
 					<h1>Uma constante é imutável</h1>
+					</section>
+					<section>
+						<h2>Mito</h2>
+						<pre><code data-trim contenteditable>
+final int[4] numbers = {0, 1, 2, 3};
+// numbers = {0, 1, 2, 3}
+
+numbers[2] = 999999;
+// numbers = {0, 1, 999999, 3}
+						</code></pre>
+					</section>
 				</section>
 
 				<section>
-					<h1>Não existe bala de prata</h1>
-					<h2>O segredo está em isolar as partes móveis</h2>
+					<section>
+						<h1>Não existe bala de prata</h1>
+						<h2>O segredo está em isolar as partes móveis</h2>
+					</section>
+					<section>
+						<h2>Isole as partes móveis</h2>
+						<img src="img/bike.jpg" height="400">
+					</section>
 				</section>
 
 				<section>
